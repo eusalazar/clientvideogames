@@ -127,7 +127,6 @@ export default function CreatedGames() {
 
     return (
         <div className="create-video-games">
-            
             <div className="form-contenedor">
                 <h1>Crea tu videojuego!</h1>
                 <form onSubmit={(e) => {handleSubmit(e)}}>

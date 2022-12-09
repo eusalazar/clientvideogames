@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  react-client-videogames:
+    environment:
+      VIRTUAL_HOST: client.videogames.euge.dev, www.client.videogames.euge.dev
+      LETSENCRYPT_HOST: client.videogames.euge.dev, www.client.videogames.euge.dev
+      LETSENCRYPT_EMAIL: eugeniasalazar745@gmail.com
+      VIRTUAL_PORT: 3700
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - 3700
+    ports:
+      - 3700:3700
+    container_name: react-client-videogames
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

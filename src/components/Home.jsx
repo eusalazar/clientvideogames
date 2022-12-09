@@ -29,10 +29,10 @@ export default function Home() {
     useEffect(() => {
         dispatch(getGenres())
         dispatch(getVideogames())  
-     },[dispatch])                
+        },[dispatch])                
 
 
-     function handleClick(e) {
+        function handleClick(e) {
         e.preventDefault();  
         dispatch(getVideogames())  
     };
@@ -97,7 +97,7 @@ export default function Home() {
     function renderCargando () {
         return (
             <div className="cargando">
-               <Link to='#' className="neon-link">
+                <Link to='#' className="neon-link">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -175,23 +175,24 @@ export default function Home() {
         return (
             <div className="content-container">
                 <div className="header-container">
-                   {renderHeader()}
+                    {renderHeader()}
                 </div>
                 <div className="games-container">
                     { gamesInChunk.length === 0 && errorMessage && <h1 className="errorMessage">{errorMessage}</h1> }
                     { gamesInChunk.map(renderFilaDeJuegos) }
                 </div>
-             </div>
+                </div>
         )
     }
 
     const gamesInChunk = crearFilas(currentGames, 3)
 
-     return(
-         <div className={cargando ? 'home cargando' : 'home'}>
-             {cargando && renderCargando() }
-             {!cargando && renderContenido()}
-         </div>
-     )
+    
+        return(
+            <div className={cargando ? 'home cargando' : 'home'}>
+                {cargando && renderCargando() }
+                {!cargando && renderContenido()}
+            </div>
+        )
 
 }
