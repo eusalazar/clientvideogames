@@ -11,6 +11,7 @@ export const BY_RATING = 'BY_RATING';
 export const GET_DETAILS = 'GET_DETAILS'
 export const GET_NAME_VIDEOGAMES_FAILED = 'GET_NAME_VIDEOGAMES_FAILED'
 export const INICIAR_GET_ALL_VIDEOGAMES = 'INICIAR_GET_ALL_VIDEOGAMES'
+export const ENDPOINT = "www.api.videogames.euge.dev"
 
 export function getByGenres(payload) {
     return async function(dispatch){
@@ -26,7 +27,7 @@ export function getVideogames(){
         dispatch({
             type: INICIAR_GET_ALL_VIDEOGAMES
         })
-        const json = await axios.get("https://euge-videogames-api.herokuapp.com/videogames");
+        const json = await axios.get(ENDPOINT + "/videogames");
         return dispatch({
             type: GET_ALL_VIDEOGAMES,
             payload: json.data
@@ -36,7 +37,7 @@ export function getVideogames(){
 
 export function getPlatforms(){
     return async function(dispatch){
-        const json = await axios.get("https://euge-videogames-api.herokuapp.com/platforms");
+        const json = await axios.get(ENDPOINT + "/platforms");
         return dispatch({
             type: GET_ALL_PLATFORMS,
             payload: json.data
@@ -47,7 +48,7 @@ export function getPlatforms(){
 export function getDetails(id) {
     return async function(dispatch) {
         try {
-            const json = await axios.get(`https://euge-videogames-api.herokuapp.com/videogames/${id}`);
+            const json = await axios.get(ENDPOINT + `/videogames/${id}`);
             return dispatch({
                 type: GET_DETAILS,
                 payload: json.data
@@ -60,12 +61,12 @@ export function getDetails(id) {
 
 export function getGenres() {
     return async function(dispatch) {
-        const json = await axios.get("https://euge-videogames-api.herokuapp.com/genres");
+        const json = await axios.get(ENDPOINT + "/genres");
         return dispatch({
             type: GET_GENRES,
             payload: json.data
         })
-    }  
+    }
 };
 
 export function byOrder (payload) {
@@ -85,7 +86,7 @@ export function created (payload) {
 export function getNameVideoGames (name) {
     return async function(dispatch) {
         try {
-            const json = await axios.get(`https://euge-videogames-api.herokuapp.com/videogames?name=${name}`)
+            const json = await axios.get(ENDPOINT + `/videogames?name=${name}`)
             return dispatch({
                 type: GET_NAME_VIDEOGAMES,
                 payload: json.data
@@ -100,12 +101,12 @@ export function getNameVideoGames (name) {
 
 export function postVideoGames(payload) {
     return async function(dispatch) {
-        const info = await axios.post('https://euge-videogames-api.herokuapp.com/videogames', payload)
+        const info = await axios.post(ENDPOINT + '/videogames', payload)
         return dispatch({
             type: POST,
             info
         })
-    
+
     }
 }
 
