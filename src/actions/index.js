@@ -11,7 +11,7 @@ export const BY_RATING = 'BY_RATING';
 export const GET_DETAILS = 'GET_DETAILS'
 export const GET_NAME_VIDEOGAMES_FAILED = 'GET_NAME_VIDEOGAMES_FAILED'
 export const INICIAR_GET_ALL_VIDEOGAMES = 'INICIAR_GET_ALL_VIDEOGAMES'
-export const ENDPOINT = "www.api.videogames.euge.dev"
+export const ENDPOINT = "https://www.api.videogames.euge.dev"
 
 export function getByGenres(payload) {
     return async function(dispatch){
